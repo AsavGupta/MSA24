@@ -1,4 +1,5 @@
-# MSA24
+MSA24
 
-#Made Wage Calc - Wednesday
-#Made Vending Machine - Friday
+Made Wage Calc - Wednesday
+
+Made Vending Machine - Friday
