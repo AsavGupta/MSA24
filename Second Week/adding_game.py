@@ -43,6 +43,7 @@ def main():
     number_of_tries = 3
     questions_asked = 0
     questions_right = 0
+    total_attempts = 0
     right_answer_responses = ['CORRECT!!', 'YESSIR', 'SKIBIDI', 'W']
     wrong_answer_responses = ['WRONG!!', 'DUMMY', 'WHAT THE SIGMA', 'L', 'Keep Yourself Safe!', 'You\'re Adopted']
 
@@ -56,7 +57,8 @@ def main():
         attempts = 0
         questions_asked+=1
 
-        while attempts < number_of_tries: 
+        while attempts < number_of_tries:
+            total_attempts+=1 
             try:
                 if input(f'\n{question_values[0]} + {question_values[1]} = ') != str(question_values[2]):
                     #Random Responses
@@ -74,6 +76,8 @@ def main():
                 continue
 
     grade = (questions_right/questions_asked)*100
-    print(f'\nYou got {questions_right} out of {questions_asked} correct: {grade:.2f}%')            
+    total_grade  = (questions_right/total_attempts)*100
+    print(f'\nYou got {questions_right} out of {questions_asked} correct: {grade:.2f}%')    
+    print(f'\nYou got {questions_right} out of {total_attempts} total attempts correct: {total_grade:.2f}%')           
 
 main()
