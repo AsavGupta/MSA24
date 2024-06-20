@@ -4,7 +4,7 @@ import random
 def difficulty(): 
     while True:
         try:
-            dif_level = int(input("Enter Level 1, 2, 3: "))
+            dif_level = int(input("\nEnter Level 1, 2, 3: "))
             if dif_level in [1,2,3]:
                 return dif_level
             else:
@@ -16,7 +16,7 @@ def difficulty():
 def question_amount():
     while True:
         try:
-            questions = int(input("Enter number of questions to ask: 3 to 10: "))
+            questions = int(input("\nEnter number of questions to ask: 3 to 10: "))
             if questions in range(3,11):
                 return questions
             else:
@@ -43,25 +43,32 @@ def main():
     number_of_tries = 3
     questions_asked = 0
     questions_right = 0
+    right_answer_responses = ['CORRECT!!', 'YESSIR', 'SKIBIDI', 'W']
+    wrong_answer_responses = ['WRONG!!', 'DUMMY', 'WHAT THE SIGMA', 'L', 'Keep Yourself Safe!', 'You\'re Adopted']
 
+    #Game Loop
     while questions_asked < num_of_questions:
 
         #Difficulty Setting and Asking questions
         question_values = question_asker(game_difficulty)
 
         #Check for tries
-        attempts=0
+        attempts = 0
         questions_asked+=1
+
         while attempts < number_of_tries: 
             try:
-                if int(input(f'\n{question_values[0]} + {question_values[1]} = ')) != question_values[2]:
-                    print('WRONG!!')
+                if input(f'\n{question_values[0]} + {question_values[1]} = ') != str(question_values[2]):
+                    #Random Responses
+                    print(wrong_answer_responses[random.randint(0,len(wrong_answer_responses)-1)])
                     attempts+=1
                     if attempts == number_of_tries:
+                        #If Out of Guesses
                         print(f'Correct Answer: {question_values[2]} ')
                 else:
                     questions_right+=1
-                    print('CORRECT!!')
+                    #Random Responses
+                    print(right_answer_responses[random.randint(0,len(right_answer_responses)-1)])
                     break
             except:
                 continue
