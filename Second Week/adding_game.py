@@ -24,6 +24,7 @@ def question_amount():
         except:
             print("ERROR: Please enter an integer value between 3 and 10!")
 
+#Determine Question Values
 def question_asker(diff):
     if diff == 1:
         x = random.randint(0,9)
@@ -37,7 +38,8 @@ def question_asker(diff):
     return ([x,y,x+y])
 
 def main(): 
-    #Call Functions 
+
+    #Call Functions and Set Vars
     game_difficulty = difficulty()
     num_of_questions = question_amount()
     number_of_tries = 3
@@ -74,7 +76,8 @@ def main():
                     break
             except:
                 continue
-
+    
+    #Grading
     grade = (questions_right/questions_asked)*100
     total_grade  = (questions_right/total_attempts)*100
     print(f'\nYou got {questions_right} out of {questions_asked} correct: {grade:.2f}%')    
