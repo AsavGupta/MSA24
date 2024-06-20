@@ -75,6 +75,8 @@ def main():
                     print(right_answer_responses[random.randint(0,len(right_answer_responses)-1)])
                     break
             except:
+                attempts+=1
+                print(wrong_answer_responses[random.randint(0,len(wrong_answer_responses)-1)])
                 continue
     
     #Grading
