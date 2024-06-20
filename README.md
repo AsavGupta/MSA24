@@ -1,5 +1,1 @@
-MSA24
-
-Made Wage Calc - Wednesday
-
-Made Vending Machine - Friday
+MSA 2024 - Think Like a Programmer!
