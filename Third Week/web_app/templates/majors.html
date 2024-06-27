@@ -2,5 +2,35 @@
 
 {% block content %}
     <h1>{% block title %} View Students by Major {% endblock %}</h1>
+    <form method="post">
+        <label for="major">Choose Major: </label>
+        <select id="major" name="major">
+            
+            {% if current_major %}
+                <option value="">{{current_major}}</option>
+            {% else %}
+                <option value="">Select a Major</option>
+            {% endif %}
+
+            {% for major in major_list %}
+                <option value="{{ major }}">{{ major }}</option>
+            {% endfor %}
+            </select>
+        <input type="submit" value="Find Students"/>
+    </form>
+    {% if student_in_major_list %}
+        {% for student in student_in_major_list %}
+            <div class="post">
+                <h2>{{student['first name']}}  {{student['last name']}}</h2>
+                <ul style="list-style-type:circle">
+                    <li>Major: {{student['major']}}</li>
+                    <li>Class: {{student['class']}}</li>
+                    <li>GPA: {{student['gpa']}}</li>
+                    <li>ID: {{student['ID']}}</li>
+                </ul>         
+            </div>
+        {% endfor %}
+    {% endif %}
+
 
 {% endblock %}
